@@ -1,0 +1,24 @@
+{
+  "document_type": "timetable",
+  "institution": "National Institute of Technology, Bhopal",
+  "department": "Computer Science & Engineering",
+  "semester": "3rd Semester (Odd 2024)",
+  "section": "A",
+  "classes": [
+    {"day": "Monday", "time": "09:00", "subject": "Data Structures & Algorithms", "location": "LH-301", "professor": "Dr. R.K. Sharma"},
+    {"day": "Monday", "time": "11:00", "subject": "Digital Electronics", "location": "LH-204", "professor": "Prof. A. Gupta"},
+    {"day": "Monday", "time": "14:00", "subject": "DSA Lab", "location": "CC-Lab 2", "professor": "Dr. R.K. Sharma"},
+    {"day": "Tuesday", "time": "09:00", "subject": "Mathematics III", "location": "LH-301", "professor": "Dr. S. Verma"},
+    {"day": "Tuesday", "time": "11:00", "subject": "Computer Networks", "location": "LH-205", "professor": "Prof. M. Singh"},
+    {"day": "Tuesday", "time": "14:00", "subject": "Digital Electronics Lab", "location": "EE-Lab 1", "professor": "Prof. A. Gupta"},
+    {"day": "Wednesday", "time": "09:00", "subject": "Data Structures & Algorithms", "location": "LH-301", "professor": "Dr. R.K. Sharma"},
+    {"day": "Wednesday", "time": "11:00", "subject": "Mathematics III", "location": "LH-301", "professor": "Dr. S. Verma"},
+    {"day": "Wednesday", "time": "14:00", "subject": "Computer Networks Lab", "location": "CC-Lab 3", "professor": "Prof. M. Singh"},
+    {"day": "Thursday", "time": "09:00", "subject": "Digital Electronics", "location": "LH-204", "professor": "Prof. A. Gupta"},
+    {"day": "Thursday", "time": "11:00", "subject": "Data Structures & Algorithms", "location": "LH-301", "professor": "Dr. R.K. Sharma"},
+    {"day": "Thursday", "time": "14:00", "subject": "Soft Skills & Communication", "location": "LH-102", "professor": "Ms. P. Reddy"},
+    {"day": "Friday", "time": "09:00", "subject": "Mathematics III", "location": "LH-301", "professor": "Dr. S. Verma"},
+    {"day": "Friday", "time": "11:00", "subject": "Computer Networks", "location": "LH-205", "professor": "Prof. M. Singh"},
+    {"day": "Friday", "time": "14:00", "subject": "Mini Project / Library", "location": "CC-Lab 1", "professor": "Dr. R.K. Sharma"}
+  ]
+}

@@ -1,0 +1,13 @@
+# SAM CLI configuration
+# Run: sam deploy --guided (first time) or sam deploy (subsequent)
+
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "campusflow"
+resolve_s3 = true
+s3_prefix = "campusflow"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "Stage=dev"

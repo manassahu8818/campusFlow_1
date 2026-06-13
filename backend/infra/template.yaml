@@ -1,0 +1,241 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: CampusFlow - Proactive AI OS for Student Life
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 30
+    MemorySize: 256
+    Environment:
+      Variables:
+        DYNAMODB_TABLE: !Ref CampusFlowTable
+        S3_BUCKET: !Ref UploadsBucket
+        AWS_REGION_NAME: us-east-1
+        EXTRACTOR_MODE: stub
+        QUERY_MODE: dynamo
+        PROACTIVE_MODE: deterministic
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, prod]
+
+Resources:
+  # ============================================
+  # STORAGE
+  # ============================================
+
+  CampusFlowTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CampusFlow
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+
+  UploadsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub campusflow-uploads-${AWS::AccountId}
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: [GET, PUT, POST]
+            AllowedOrigins: ['*']
+            MaxAge: 3600
+
+  # ============================================
+  # AUTH (Cognito - provisioned for architecture, toggled off for demo)
+  # ============================================
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: CampusFlowUsers
+      AutoVerifiedAttributes: [email]
+      UsernameAttributes: [email]
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireUppercase: false
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: false
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: CampusFlowApp
+      UserPoolId: !Ref UserPool
+      ExplicitAuthFlows:
+        - ALLOW_USER_PASSWORD_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      GenerateSecret: false
+
+  # ============================================
+  # API GATEWAY
+  # ============================================
+
+  CampusFlowApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref Stage
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization,X-Student-Id'"
+        AllowOrigin: "'*'"
+
+  # ============================================
+  # LAMBDA FUNCTIONS
+  # ============================================
+
+  IngestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: campusflow-ingest-handler
+      CodeUri: ../lambdas/ingest/
+      Handler: handler.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CampusFlowTable
+        - S3CrudPolicy:
+            BucketName: !Ref UploadsBucket
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - textract:AnalyzeDocument
+              Resource: '*'
+      Events:
+        Upload:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CampusFlowApi
+            Path: /ingest/upload
+            Method: post
+
+  QueryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: campusflow-query-handler
+      CodeUri: ../lambdas/query/
+      Handler: handler.handler
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref CampusFlowTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - bedrock:Retrieve
+                - bedrock:RetrieveAndGenerate
+              Resource: '*'
+      Events:
+        Ask:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CampusFlowApi
+            Path: /query/ask
+            Method: post
+
+  ProactiveFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: campusflow-proactive-handler
+      CodeUri: ../lambdas/proactive/
+      Handler: handler.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CampusFlowTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - sns:Publish
+              Resource: '*'
+      Events:
+        GetCards:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CampusFlowApi
+            Path: /proactive/cards
+            Method: get
+        ScheduledCheck:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+            Input: '{"student_id": "aarav-demo"}'
+
+  ActionsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: campusflow-actions-handler
+      CodeUri: ../lambdas/actions/
+      Handler: handler.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CampusFlowTable
+
+  # ============================================
+  # SCHEDULE / TODAY ENDPOINT (returns today's schedule)
+  # ============================================
+
+  ScheduleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: campusflow-schedule-handler
+      CodeUri: ../lambdas/query/
+      Handler: handler.handler
+      Environment:
+        Variables:
+          QUERY_MODE: dynamo
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref CampusFlowTable
+      Events:
+        TodaySchedule:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CampusFlowApi
+            Path: /schedule/today
+            Method: get
+
+  # ============================================
+  # SNS TOPIC (for push notifications)
+  # ============================================
+
+  AlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: CampusFlowAlerts
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub https://${CampusFlowApi}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/
+
+  UserPoolId:
+    Description: Cognito User Pool ID
+    Value: !Ref UserPool
+
+  UserPoolClientId:
+    Description: Cognito App Client ID
+    Value: !Ref UserPoolClient
+
+  TableName:
+    Description: DynamoDB Table Name
+    Value: !Ref CampusFlowTable
+
+  BucketName:
+    Description: S3 Uploads Bucket
+    Value: !Ref UploadsBucket

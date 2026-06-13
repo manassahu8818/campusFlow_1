@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Student-Id": "aarav-demo"
+  },
+  "body": "{\"file_base64\": \"aGVsbG8=\", \"filename\": \"my_timetable.png\", \"content_type\": \"image/png\"}",
+  "isBase64Encoded": false,
+  "requestContext": {
+    "resourcePath": "/ingest/upload",
+    "httpMethod": "POST"
+  }
+}

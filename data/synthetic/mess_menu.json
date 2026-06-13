@@ -1,0 +1,28 @@
+{
+  "document_type": "menu",
+  "hostel": "Boys Hostel Block C",
+  "week": "Week of Oct 7-13, 2024",
+  "menu_items": [
+    {"meal": "breakfast", "day": "Monday", "items": ["Poha", "Bread-Butter-Jam", "Boiled Eggs", "Tea/Coffee", "Banana"]},
+    {"meal": "lunch", "day": "Monday", "items": ["Rice", "Dal Tadka", "Aloo Gobi", "Roti (4)", "Green Salad", "Curd"]},
+    {"meal": "dinner", "day": "Monday", "items": ["Rice", "Rajma Masala", "Paneer Butter Masala", "Roti (4)", "Gulab Jamun"]},
+    {"meal": "breakfast", "day": "Tuesday", "items": ["Idli (4) + Sambar + Chutney", "Toast", "Coffee/Tea", "Apple"]},
+    {"meal": "lunch", "day": "Tuesday", "items": ["Rice", "Sambar", "Bhindi Fry", "Roti (4)", "Papad", "Buttermilk"]},
+    {"meal": "dinner", "day": "Tuesday", "items": ["Veg Biryani", "Raita", "Mixed Veg Curry", "Roti (4)", "Ice Cream"]},
+    {"meal": "breakfast", "day": "Wednesday", "items": ["Aloo Paratha (2)", "Curd", "Pickle", "Tea/Coffee", "Banana"]},
+    {"meal": "lunch", "day": "Wednesday", "items": ["Rice", "Chana Dal", "Baingan Bharta", "Roti (4)", "Salad", "Lassi"]},
+    {"meal": "dinner", "day": "Wednesday", "items": ["Rice", "Kadhi Pakora", "Aloo Matar", "Roti (4)", "Kheer"]},
+    {"meal": "breakfast", "day": "Thursday", "items": ["Upma", "Bread-Butter", "Omelette/Boiled Egg", "Tea/Coffee", "Orange"]},
+    {"meal": "lunch", "day": "Thursday", "items": ["Rice", "Moong Dal", "Gobi Aloo", "Roti (4)", "Pickle", "Curd"]},
+    {"meal": "dinner", "day": "Thursday", "items": ["Chicken Biryani / Veg Pulao", "Raita", "Dal Fry", "Roti (4)", "Jalebi"]},
+    {"meal": "breakfast", "day": "Friday", "items": ["Chole Bhature (2)", "Tea/Coffee", "Banana"]},
+    {"meal": "lunch", "day": "Friday", "items": ["Rice", "Arhar Dal", "Palak Paneer", "Roti (4)", "Salad", "Chaas"]},
+    {"meal": "dinner", "day": "Friday", "items": ["Jeera Rice", "Egg Curry / Paneer Do Pyaza", "Roti (4)", "Mixed Veg", "Fruit Custard"]},
+    {"meal": "breakfast", "day": "Saturday", "items": ["Dosa (2) + Sambar + Chutney", "Tea/Coffee", "Apple"]},
+    {"meal": "lunch", "day": "Saturday", "items": ["Rice", "Dal Makhani", "Seasonal Sabzi", "Roti (4)", "Papad", "Sweet Lassi"]},
+    {"meal": "dinner", "day": "Saturday", "items": ["Fried Rice", "Manchurian", "Roti (4)", "Dal Tadka", "Rasmalai"]},
+    {"meal": "breakfast", "day": "Sunday", "items": ["Puri (4) + Aloo Sabzi", "Tea/Coffee", "Banana"]},
+    {"meal": "lunch", "day": "Sunday", "items": ["Rice", "Rajma", "Matar Paneer", "Roti (4)", "Salad", "Buttermilk", "Gulab Jamun"]},
+    {"meal": "dinner", "day": "Sunday", "items": ["Rice", "Dal Fry", "Chicken Curry / Soya Chunks", "Roti (4)", "Ice Cream"]}
+  ]
+}

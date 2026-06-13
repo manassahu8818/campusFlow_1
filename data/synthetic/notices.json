@@ -1,0 +1,40 @@
+{
+  "document_type": "notices",
+  "notices": [
+    {
+      "id": "notice-midsem-2024",
+      "title": "Mid-Semester Examination Schedule - B.Tech Sem 3",
+      "body": "Mid-semester examinations for all B.Tech 3rd Semester students will be held from 15th October to 22nd October 2024. Students must carry their college ID cards. Seating arrangement will be displayed on the department notice board 2 days prior. No electronic devices allowed in the examination hall. Late comers will not be permitted after 15 minutes.",
+      "date": "2024-10-05",
+      "category": "academic"
+    },
+    {
+      "id": "notice-placement-tcs",
+      "title": "Campus Placement Drive - TCS Digital",
+      "body": "TCS Digital campus placement drive scheduled for 20th October 2024. Eligibility: CSE/IT/ECE with 7.0+ CGPA, no active backlogs. Pre-placement talk on 18th October at 4 PM in Seminar Hall. Register on the placement portal by 16th October. Carry 2 passport photos and updated resume.",
+      "date": "2024-10-08",
+      "category": "placement"
+    },
+    {
+      "id": "notice-hostel-water",
+      "title": "Water Supply Disruption - Boys Hostel Block C",
+      "body": "Due to maintenance work on the overhead tank, water supply in Boys Hostel Block C will be disrupted on 8th October from 10:00 AM to 4:00 PM. Please store water in advance. Emergency water tanker will be available near the hostel gate.",
+      "date": "2024-10-06",
+      "category": "hostel"
+    },
+    {
+      "id": "notice-hackathon",
+      "title": "Inter-College Hackathon - CodeStorm 2024",
+      "body": "CSE department is organizing CodeStorm 2024, a 36-hour inter-college hackathon on 25-26 October. Team size: 3-4 members. Themes: HealthTech, EdTech, FinTech, Sustainability. Registration fee: ₹200 per team. Prizes worth ₹50,000. Register at codestorm.nitb.ac.in by 20th October.",
+      "date": "2024-10-07",
+      "category": "event"
+    },
+    {
+      "id": "notice-library-hours",
+      "title": "Extended Library Hours During Exam Period",
+      "body": "Central Library will remain open from 7:00 AM to 11:00 PM during the examination period (15th Oct - 22nd Oct). Reading room access requires valid library card. Group study rooms can be booked at the counter.",
+      "date": "2024-10-09",
+      "category": "academic"
+    }
+  ]
+}

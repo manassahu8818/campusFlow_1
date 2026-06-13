@@ -1,0 +1,40 @@
+{
+  "document_type": "deadlines",
+  "deadlines": [
+    {
+      "id": "hw-dsa-3",
+      "title": "DSA Assignment 3 - Binary Trees & AVL Trees",
+      "subject": "Data Structures & Algorithms",
+      "due_date": "2024-10-12",
+      "description": "Implement AVL tree with insertion, deletion, and all traversals. Submit code + handwritten complexity analysis on Moodle before 11:59 PM. Late submission: -20% per day."
+    },
+    {
+      "id": "hw-cn-lab2",
+      "title": "CN Lab Report 2 - Socket Programming",
+      "subject": "Computer Networks",
+      "due_date": "2024-10-14",
+      "description": "Submit lab report with TCP/UDP client-server code, output screenshots, and viva questions. Email to prof.singh@nitb.ac.in with subject 'CN-Lab2-RollNo'."
+    },
+    {
+      "id": "hw-math-tutorial3",
+      "title": "Mathematics III Tutorial Sheet 3",
+      "subject": "Mathematics III",
+      "due_date": "2024-10-11",
+      "description": "Solve all problems from Tutorial Sheet 3 (Laplace Transforms). Submit handwritten solutions in class. No late submissions accepted."
+    },
+    {
+      "id": "hw-de-report",
+      "title": "Digital Electronics Mini Project Proposal",
+      "subject": "Digital Electronics",
+      "due_date": "2024-10-18",
+      "description": "Submit 2-page project proposal with block diagram, component list, and timeline. Team of 2. Topics assigned in lab."
+    },
+    {
+      "id": "placement-aptitude",
+      "title": "TCS NQT Practice Test",
+      "subject": "Placement Prep",
+      "due_date": "2024-10-17",
+      "description": "Complete the mock aptitude test on TCS iON portal. Minimum 60% required for shortlisting. Link shared on placement WhatsApp group."
+    }
+  ]
+}
