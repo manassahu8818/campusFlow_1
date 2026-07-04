@@ -1,0 +1,1025 @@
+{
+  "aarav-demo": {
+    "classes": [
+      {
+        "day": "Monday",
+        "time": "9:00-9:50",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "10:00-10:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "11:10-12:00",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "12:00-12:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "2:00-2:50",
+        "subject": "DSA Lab",
+        "location": "CC-Lab 2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "3:00-4:00",
+        "subject": "DSA Lab",
+        "location": "CC-Lab 2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "9:00-9:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "10:00-10:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "11:10-12:00",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "12:00-12:50",
+        "subject": "Digital Electronics",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "2:00-2:50",
+        "subject": "DBMS Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "3:00-4:00",
+        "subject": "DBMS Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "9:00-9:50",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "10:00-10:50",
+        "subject": "Digital Electronics",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "11:10-12:00",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "12:00-12:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "2:00-2:50",
+        "subject": "CN Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "3:00-4:00",
+        "subject": "CN Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "9:00-9:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "10:00-10:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "11:10-12:00",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "12:00-12:50",
+        "subject": "Soft Skills",
+        "location": "LH-102",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "2:00-2:50",
+        "subject": "Digital Electronics Lab",
+        "location": "DE-Lab",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "3:00-4:00",
+        "subject": "Digital Electronics Lab",
+        "location": "DE-Lab",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "9:00-9:50",
+        "subject": "Technical Communication",
+        "location": "Block-C 305",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "10:00-10:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "11:10-12:00",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "12:00-12:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "2:00-2:50",
+        "subject": "Library",
+        "location": "\u2014",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "3:00-4:00",
+        "subject": "Sports",
+        "location": "\u2014",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "9:00-9:50",
+        "subject": "Algorithms Lab",
+        "location": "Lab-2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "10:00-10:50",
+        "subject": "Algorithms Lab",
+        "location": "Lab-2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "11:10-12:00",
+        "subject": "Robotics Club Meetup",
+        "location": "Innovation Lab",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "9:00",
+        "subject": "Maths",
+        "location": "LH-301",
+        "professor": "",
+        "confidence": 1.0
+      },
+      {
+        "day": "Today",
+        "time": "10:00-10:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": "",
+        "confidence": 1.0
+      },
+      {
+        "day": "Friday",
+        "time": "morning",
+        "subject": "maths",
+        "location": "",
+        "professor": "",
+        "confidence": 1.0
+      },
+      {
+        "day": "Monday",
+        "time": "9:00\u20139:50",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "10:00\u201310:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "11:10\u201312:00",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "12:00\u201312:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "2:00\u20132:50",
+        "subject": "DSA Lab",
+        "location": "CC-Lab 2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Monday",
+        "time": "3:00\u20134:00",
+        "subject": "DSA Lab",
+        "location": "CC-Lab 2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "9:00\u20139:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "10:00\u201310:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "11:10\u201312:00",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "12:00\u201312:50",
+        "subject": "Digital Electronics",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "2:00\u20132:50",
+        "subject": "DBMS Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Tuesday",
+        "time": "3:00\u20134:00",
+        "subject": "DBMS Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "9:00\u20139:50",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "10:00\u201310:50",
+        "subject": "Digital Electronics",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "11:10\u201312:00",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "12:00\u201312:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "2:00\u20132:50",
+        "subject": "CN Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Wednesday",
+        "time": "3:00\u20134:00",
+        "subject": "CN Lab",
+        "location": "CC-Lab 3",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "9:00\u20139:50",
+        "subject": "Maths III",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "10:00\u201310:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "11:10\u201312:00",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "12:00\u201312:50",
+        "subject": "Soft Skills",
+        "location": "LH-102",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "2:00\u20132:50",
+        "subject": "Digital Electronics Lab",
+        "location": "DE-Lab",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Thursday",
+        "time": "3:00\u20134:00",
+        "subject": "Digital Electronics Lab",
+        "location": "DE-Lab",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "9:00\u20139:50",
+        "subject": "Technical Communication",
+        "location": "Block-C 305",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "10:00\u201310:50",
+        "subject": "DBMS",
+        "location": "LH-204",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "11:10\u201312:00",
+        "subject": "DSA",
+        "location": "LH-301",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "12:00\u201312:50",
+        "subject": "Computer Networks",
+        "location": "LH-205",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "2:00\u20132:50",
+        "subject": "Library",
+        "location": "\u2014",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Friday",
+        "time": "3:00\u20134:00",
+        "subject": "Sports",
+        "location": "\u2014",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "9:00\u20139:50",
+        "subject": "Algorithms Lab",
+        "location": "Lab-2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "10:00\u201310:50",
+        "subject": "Algorithms Lab",
+        "location": "Lab-2",
+        "professor": null,
+        "confidence": 0.9
+      },
+      {
+        "day": "Saturday",
+        "time": "11:10\u201312:00",
+        "subject": "Robotics Club Meetup",
+        "location": "Innovation Lab",
+        "professor": null,
+        "confidence": 0.9
+      }
+    ],
+    "deadlines": [],
+    "notices": [
+      {
+        "id": "notice-0",
+        "title": "HOSTEL NOTICE \u2014 WATER SUPPLY",
+        "body": "Water supply will be interrupted on 5 July 2026 from 10:00 AM to 4:00 PM due to tank cleaning. Affected Blocks: A, B, and C hostels. Action: Please store water in advance. Normal supply resumes by 4:00 PM.",
+        "date": "2026-07-05",
+        "category": "hostel",
+        "confidence": 0.9
+      }
+    ],
+    "menu_items": [
+      {
+        "meal": "breakfast",
+        "day": "Monday",
+        "items": [
+          "Vermicelli",
+          "Sandwich",
+          "Idli",
+          "Medu Wada",
+          "Poha"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Monday",
+        "items": [
+          "Palak Poori",
+          "Aloo Matar",
+          "Kathal Sabji",
+          "Jeera Aloo",
+          "Papad",
+          "Rice",
+          "Dal"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Monday",
+        "items": [
+          "Samosa",
+          "Chai"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Monday",
+        "items": [
+          "Rajma",
+          "Paneer Butter Masala",
+          "Roti",
+          "Rice",
+          "Salad",
+          "Gulab Jamun"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Tuesday",
+        "items": [
+          "Uttapam",
+          "Sambhar",
+          "Bedhayi",
+          "Aloo Matar",
+          "Masala Dosa"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Tuesday",
+        "items": [
+          "Chole",
+          "Bhature",
+          "Rice",
+          "Boondi Raita",
+          "Salad",
+          "Pickle"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Tuesday",
+        "items": [
+          "Bread Pakora",
+          "Coffee"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Tuesday",
+        "items": [
+          "Kadhi Pakora",
+          "Aloo Gobi",
+          "Roti",
+          "Rice",
+          "Curd",
+          "Custard"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Wednesday",
+        "items": [
+          "Aloo Paratha",
+          "Green Chutney",
+          "Paneer Pyaz Paratha",
+          "Curd"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Wednesday",
+        "items": [
+          "Veg Biryani",
+          "Mirchi Ka Salan",
+          "Raita",
+          "Papad",
+          "Salad"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Wednesday",
+        "items": [
+          "Vada Pav",
+          "Chai"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Wednesday",
+        "items": [
+          "Dal Makhani",
+          "Mix Veg",
+          "Roti",
+          "Rice",
+          "Salad",
+          "Sewai"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Thursday",
+        "items": [
+          "Daliya",
+          "Cornflakes",
+          "Sprouts",
+          "Chocos",
+          "Bread Jam"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Thursday",
+        "items": [
+          "Rajma",
+          "Rice",
+          "Aloo Fry",
+          "Roti",
+          "Salad",
+          "Pickle"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Thursday",
+        "items": [
+          "Pav Bhaji",
+          "Lassi"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Thursday",
+        "items": [
+          "Shahi Paneer",
+          "Bhindi Fry",
+          "Roti",
+          "Rice",
+          "Kheer"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Friday",
+        "items": [
+          "Bread Jam Butter",
+          "Milk",
+          "Tea",
+          "Coffee",
+          "Seasonal Fruit"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Friday",
+        "items": [
+          "Chana Dal",
+          "Bhindi Masala",
+          "Rice",
+          "Roti",
+          "Salad",
+          "Pickle"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Friday",
+        "items": [
+          "Aloo Tikki",
+          "Chai"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Friday",
+        "items": [
+          "Malai Kofta",
+          "Jeera Rice",
+          "Roti",
+          "Salad",
+          "Ice Cream"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Saturday",
+        "items": [
+          "Cornflakes",
+          "Sprouts",
+          "Daliya",
+          "Chocos",
+          "Tea",
+          "Puri Bhaji"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Saturday",
+        "items": [
+          "Kadhi Chawal",
+          "Aloo Sabji",
+          "Roti",
+          "Salad",
+          "Papad"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Saturday",
+        "items": [
+          "Maggi",
+          "Coffee"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Saturday",
+        "items": [
+          "Chilli Paneer",
+          "Fried Rice",
+          "Manchurian",
+          "Salad",
+          "Fruit Custard"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "breakfast",
+        "day": "Sunday",
+        "items": [
+          "Daliya",
+          "Sprouts",
+          "Chocos",
+          "Cornflakes",
+          "Coffee",
+          "Chole Bhature"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "lunch",
+        "day": "Sunday",
+        "items": [
+          "Veg Pulao",
+          "Dal Tadka",
+          "Raita",
+          "Papad",
+          "Salad",
+          "Pickle"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "snacks",
+        "day": "Sunday",
+        "items": [
+          "Pasta",
+          "Cold Coffee"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "meal": "dinner",
+        "day": "Sunday",
+        "items": [
+          "Special Thali"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "events": [
+      {
+        "id": "ev-1783187859",
+        "name": "schedule",
+        "datetime": "2026-07-04",
+        "venue": "",
+        "club": "",
+        "confidence": 1.0
+      },
+      {
+        "id": "ev-1783191272",
+        "name": "gym",
+        "datetime": "monday,wednesday,friday",
+        "venue": "",
+        "club": "",
+        "confidence": 1.0
+      },
+      {
+        "id": "ev-1783191356",
+        "name": "gym",
+        "datetime": null,
+        "venue": "",
+        "club": "",
+        "confidence": 1.0
+      }
+    ],
+    "placements": [
+      {
+        "id": "placement-0",
+        "company": "Amazon",
+        "role": "SDE Intern (Summer 2027)",
+        "ctc": "Rs. 1,10,000 per month",
+        "cgpa_cutoff": 7.0,
+        "registration_deadline": "2026-07-10",
+        "test_date": "2026-07-16",
+        "confidence": 0.9
+      }
+    ],
+    "profile": {
+      "name": "Aarav",
+      "agentName": "Aaka",
+      "priorities": [
+        "Academics",
+        "Placements"
+      ],
+      "placementFocus": "Yes, actively",
+      "endSemDate": "2026-07-09",
+      "focusTime": "Night owl",
+      "profileComplete": true,
+      "createdAt": "2026-07-04T18:41:22.296Z"
+    },
+    "intents": [
+      {
+        "id": "intent_1783191431",
+        "text": "add all substask for 3 week",
+        "topic": "gym",
+        "relatedTo": "",
+        "status": "open",
+        "createdAt": "2026-07-05T00:27:11.900684"
+      },
+      {
+        "id": "plan_1783191662",
+        "text": "DSA Crash Course - 5 Days",
+        "topic": "make a study",
+        "relatedTo": "5 Days",
+        "status": "open",
+        "steps": [
+          "Day 1: Arrays & Strings (2-3 hours) \u2013 Focus on basic operations, searching, sorting algorithms.",
+          "Day 2: Linked Lists (3-4 hours) \u2013 Implement singly and doubly linked lists, traversal, insertion, deletion.",
+          "Day 3: Recursion & Backtracking (4-5 hours) \u2013 Practice recursive solutions for problems like Fibonacci, Tower of Hanoi, and basic backtracking puzzles.",
+          "Day 4: Trees - Binary Trees & Traversal (4-5 hours) \u2013 Understand tree structure, inorder, preorder, postorder traversal. Implement a simple binary search tree.",
+          "Day 5: Review & Practice Problems (3-4 hours) \u2013 Solve 2-3 medium difficulty DSA problems from LeetCode or HackerRank covering the week's topics."
+        ],
+        "createdAt": "2026-07-05T00:31:02.301827"
+      }
+    ],
+    "_chat_history": [
+      {
+        "role": "assistant",
+        "content": "\u2705 Removed all 5 deadline(s). Timetable and menu are untouched.",
+        "sources": [
+          "action:remove"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "i want to hit gym 3 times a week add tasks accordingly"
+      },
+      {
+        "role": "assistant",
+        "content": "Okay, Aarav! Let\u2019s get you set up with a gym routine. Here's how we can incorporate that into your schedule:\n\n*   **New Task:** Gym - 3 times per week.\n*   To help me block out the best times for you, could you tell me which days work best?",
+        "sources": [
+          "student_data"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "monday,wednesday,friday"
+      },
+      {
+        "role": "assistant",
+        "content": "\u2705 Added event: **gym** on monday,wednesday,friday.",
+        "sources": [
+          "action:add_event"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "add tasks for gym"
+      },
+      {
+        "role": "assistant",
+        "content": "\u2705 Added event: **gym** on None.",
+        "sources": [
+          "action:add_event"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "add all substask for 3 week"
+      },
+      {
+        "role": "assistant",
+        "content": "Got it \u2014 I'll remind you about **add all substask for 3 week**. This will show up in my nudges when it's relevant! \ud83d\udcdd",
+        "sources": [
+          "action:add_intent"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "make a study plan for DSA in 5 days"
+      }
+    ]
+  }
+}

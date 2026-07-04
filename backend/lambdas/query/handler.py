@@ -41,6 +41,8 @@ def handler(event: dict, context) -> dict:
 
         if QUERY_MODE == "rag" and KNOWLEDGE_BASE_ID:
             answer, sources = _query_rag(question, student_id)
+        elif QUERY_MODE == "free":
+            answer, sources = _query_free_llm(question, student_id)
         else:
             answer, sources = _query_dynamo(question, student_id)
 
@@ -53,6 +55,75 @@ def handler(event: dict, context) -> dict:
     except Exception as e:
         logger.error(f"Query failed: {e}", exc_info=True)
         return _response(500, {"error": "Query failed", "details": str(e)})
+
+
+def _query_free_llm(question: str, student_id: str) -> tuple[str, list[str]]:
+    """
+    Query using free LLM (Groq/Llama) with DynamoDB context.
+    Retrieves relevant data from DynamoDB, feeds it as context to the LLM.
+    """
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+    from shared.llm_provider import call_text_llm
+
+    # Gather all student data as context
+    classes = query_items(student_id, "CLASS#")
+    deadlines = query_items(student_id, "DEADLINE#")
+    menu = query_items(student_id, "MENU#")
+    notices = query_items(student_id, "NOTICE#")
+
+    context_parts = []
+    sources = []
+
+    if classes:
+        sources.append("timetable")
+        context_parts.append("SCHEDULE:\n" + "\n".join(
+            f"  {c.get('day')} {c.get('time')} - {c.get('subject')} at {c.get('location', '?')}"
+            for c in classes
+        ))
+    if deadlines:
+        sources.append("deadlines")
+        context_parts.append("DEADLINES:\n" + "\n".join(
+            f"  {d.get('title')} - {d.get('subject')} - due {d.get('due_date')}: {d.get('description', '')}"
+            for d in deadlines
+        ))
+    if menu:
+        sources.append("mess_menu")
+        context_parts.append("MESS MENU:\n" + "\n".join(
+            f"  {m.get('day')} {m.get('meal')}: {', '.join(m.get('items', []))}"
+            for m in menu
+        ))
+    if notices:
+        sources.append("notices")
+        context_parts.append("NOTICES:\n" + "\n".join(
+            f"  [{n.get('category')}] {n.get('title')}: {n.get('body', '')[:150]}"
+            for n in notices
+        ))
+
+    if not context_parts:
+        return "I don't have any data yet. Upload your timetable, notices, or mess menu first!", []
+
+    context = "\n\n".join(context_parts)
+
+    system_prompt = """You are CampusFlow, a helpful campus assistant for an Indian college student.
+Answer the student's question using ONLY the provided context data.
+Be concise, friendly, and specific. If the answer isn't in the context, say so.
+Never make up information."""
+
+    user_prompt = f"""Context (student's uploaded data):
+{context}
+
+Student's question: {question}
+
+Answer:"""
+
+    try:
+        answer = call_text_llm(system_prompt, user_prompt)
+        if not answer:
+            return _query_dynamo(question, student_id)
+        return answer, sources
+    except Exception as e:
+        logger.error(f"Free LLM query failed: {e}")
+        return _query_dynamo(question, student_id)
 
 
 def _query_rag(question: str, student_id: str) -> tuple[str, list[str]]:

@@ -71,7 +71,67 @@ def _generate_cards(student_id: str) -> list[dict]:
     """Generate proactive cards based on student's data."""
     if PROACTIVE_MODE == "bedrock":
         return _generate_with_bedrock(student_id)
+    elif PROACTIVE_MODE == "free":
+        return _generate_with_free_llm(student_id)
     else:
+        return _generate_deterministic(student_id)
+
+
+def _generate_with_free_llm(student_id: str) -> list[dict]:
+    """
+    Use free LLM (Groq/Llama) to generate proactive nudge cards.
+    Falls back to deterministic if it fails.
+    """
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+        from shared.llm_provider import call_text_llm
+
+        # Gather student context
+        classes = query_items(student_id, "CLASS#")
+        deadlines = query_items(student_id, "DEADLINE#")
+        notices = query_items(student_id, "NOTICE#")
+
+        context = {
+            "student_id": student_id,
+            "current_time": datetime.now().isoformat(),
+            "today": datetime.now().strftime("%A"),
+            "classes_count": len(classes),
+            "today_classes": [c for c in classes if c.get("day", "").lower() == datetime.now().strftime("%A").lower()],
+            "deadlines": [{"title": d.get("title"), "due_date": d.get("due_date"), "subject": d.get("subject")} for d in deadlines],
+            "notices": [{"title": n.get("title"), "category": n.get("category")} for n in notices],
+        }
+
+        system_prompt = "You are a proactive campus assistant. Generate useful nudge cards for a student."
+        user_prompt = f"""Based on this student's data, generate 1-3 useful proactive nudge cards.
+
+Student context:
+{json.dumps(context, indent=2)}
+
+Return STRICT JSON array (no explanation, just JSON):
+[{{"id": "unique-id", "type": "reminder|alert|suggestion", "title": "short title with emoji", "body": "helpful one-line message", "actionLabel": "button text"}}]
+
+Rules:
+- Only genuinely useful nudges
+- Be specific (mention actual subjects/deadlines)
+- Prioritize urgency (approaching deadlines > general suggestions)
+- Use emojis in titles"""
+
+        response = call_text_llm(system_prompt, user_prompt)
+        if not response:
+            return _generate_deterministic(student_id)
+
+        # Parse JSON
+        text = response.strip()
+        if "```json" in text:
+            text = text.split("```json")[1].split("```")[0]
+        elif "```" in text:
+            text = text.split("```")[1].split("```")[0]
+
+        cards = json.loads(text.strip())
+        return cards if isinstance(cards, list) else _generate_deterministic(student_id)
+
+    except Exception as e:
+        logger.error(f"Free LLM proactive generation failed: {e}")
         return _generate_deterministic(student_id)
 
 

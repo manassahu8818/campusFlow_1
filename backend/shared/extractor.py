@@ -45,6 +45,8 @@ def extract_structured_data(
     """
     if EXTRACTOR_MODE == "bedrock":
         return _extract_with_bedrock(file_bytes, filename, content_type)
+    elif EXTRACTOR_MODE == "free":
+        return _extract_with_free_llm(file_bytes, filename, content_type)
     else:
         return _extract_stub(filename)
 
@@ -189,6 +191,109 @@ def _stub_mixed(filename: str) -> ExtractionResult:
         source_file=filename,
         raw_text="[Stub] Mixed campus document",
     )
+
+
+def _extract_with_free_llm(
+    file_bytes: bytes,
+    filename: str,
+    content_type: str,
+) -> ExtractionResult:
+    """
+    Extract using free LLM APIs (Gemini Vision for images, Groq for text/PDFs).
+    Falls back to stub if the call fails.
+    """
+    from .llm_provider import call_vision_llm, call_text_llm
+
+    extraction_prompt = f"""You are a document extraction AI for an Indian college student's campus documents.
+Analyze this image and extract structured data. First determine what type of document it is, then extract accordingly.
+
+DOCUMENT TYPES:
+- "menu" = mess/canteen menu (table with days as columns, meals as row sections)
+- "timetable" = class schedule (days, times, subjects, rooms, professors)
+- "notice" = hostel/academic/placement notice or circular
+- "deadline" = assignment due dates
+- "placement" = company placement/recruitment drive info
+- "event" = hackathon, fest, club event poster
+- "mixed" = contains multiple types
+
+RETURN STRICT JSON (no explanation, ONLY JSON):
+{{
+  "document_type": "menu|timetable|notice|deadline|placement|event|mixed",
+  "classes": [{{"day": "Monday", "time": "09:00", "subject": "", "location": "", "professor": "", "confidence": 0.9}}],
+  "deadlines": [{{"id": "unique-id", "title": "", "subject": "", "due_date": "YYYY-MM-DD", "description": "", "confidence": 0.9}}],
+  "notices": [{{"id": "unique-id", "title": "", "body": "", "date": "YYYY-MM-DD", "category": "academic|hostel|placement|event|general", "confidence": 0.9}}],
+  "menu_items": [{{"meal": "breakfast|lunch|dinner", "day": "Monday", "items": ["item1", "item2"], "confidence": 0.9}}],
+  "overall_confidence": 0.85,
+  "raw_text": "brief summary"
+}}
+
+RULES:
+1. Only include arrays that have data.
+2. For MENU: columns = days, row sections = meals. Read each column top-to-bottom for that day's items. Each entry: 3-7 items.
+3. For TIMETABLE: one entry per class slot.
+4. For NOTICES: full body text, categorize correctly.
+5. For DEADLINES: extract due_date in YYYY-MM-DD format.
+6. Confidence: 0.9+ if clearly readable, 0.5-0.8 if partially unclear.
+7. Filename hint: {filename}"""
+
+    try:
+        if content_type.startswith("image/"):
+            raw_response = call_vision_llm(file_bytes, extraction_prompt, content_type)
+        else:
+            # For PDFs/text, encode and send as image (Gemini handles PDFs too)
+            raw_response = call_vision_llm(file_bytes, extraction_prompt, content_type or "application/pdf")
+
+        if not raw_response:
+            logger.warning("Free LLM returned empty, falling back to stub")
+            return _extract_stub(filename)
+
+        # Parse JSON — strip code fences if present
+        text = raw_response.strip()
+        if "```json" in text:
+            text = text.split("```json")[1].split("```")[0]
+        elif "```" in text:
+            text = text.split("```")[1].split("```")[0]
+
+        data = json.loads(text.strip())
+
+        # Build ExtractionResult
+        result = ExtractionResult(
+            document_type=data.get("document_type", "unknown"),
+            overall_confidence=data.get("overall_confidence", 0.0),
+            source_file=filename,
+            raw_text=data.get("raw_text", ""),
+        )
+
+        for c in data.get("classes", []):
+            try:
+                result.classes.append(ClassEntry(**{k: v for k, v in c.items() if k in ClassEntry.__dataclass_fields__}))
+            except Exception:
+                pass
+        for d in data.get("deadlines", []):
+            try:
+                result.deadlines.append(Deadline(**{k: v for k, v in d.items() if k in Deadline.__dataclass_fields__}))
+            except Exception:
+                pass
+        for n in data.get("notices", []):
+            try:
+                result.notices.append(Notice(**{k: v for k, v in n.items() if k in Notice.__dataclass_fields__}))
+            except Exception:
+                pass
+        for m in data.get("menu_items", []):
+            try:
+                result.menu_items.append(MenuItem(**{k: v for k, v in m.items() if k in MenuItem.__dataclass_fields__}))
+            except Exception:
+                pass
+
+        logger.info(f"[FREE] Extracted {result.document_type} with confidence {result.overall_confidence}")
+        return result
+
+    except (json.JSONDecodeError, KeyError, TypeError) as e:
+        logger.error(f"Free LLM extraction parse failed: {e}")
+        return _extract_stub(filename)
+    except Exception as e:
+        logger.error(f"Free LLM extraction failed: {e}")
+        return _extract_stub(filename)
 
 
 def _extract_with_bedrock(
